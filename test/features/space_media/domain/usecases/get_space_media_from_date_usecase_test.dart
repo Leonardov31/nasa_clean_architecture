@@ -27,23 +27,23 @@ void main() {
 
   test('Should get space media entity for a given date from the repository',
       () async {
-    when(() => repository.getSpaceMediaFromData(tDate)).thenAnswer(
+    when(() => repository.getSpaceMediaFromDate(tDate)).thenAnswer(
       (_) async => const Right(tSpaceMedia),
     );
 
     final result = await usecase(tDate);
 
     expect(result, const Right(tSpaceMedia));
-    verify(() => repository.getSpaceMediaFromData(tDate)).called(1);
+    verify(() => repository.getSpaceMediaFromDate(tDate)).called(1);
   });
 
   test('Should return a failure when don´t succeed', () async {
-    when(() => repository.getSpaceMediaFromData(tDate))
+    when(() => repository.getSpaceMediaFromDate(tDate))
         .thenAnswer((_) async => Left(ServerFailure()));
 
     final result = await usecase(tDate);
 
     expect(result, Left(ServerFailure()));
-    verify(() => repository.getSpaceMediaFromData(tDate)).called(1);
+    verify(() => repository.getSpaceMediaFromDate(tDate)).called(1);
   });
 }

@@ -13,6 +13,6 @@ class GetSpaceMediaFromDateUsecase
 
   @override
   Future<Either<Failure, SpaceMediaEntity>> call(DateTime date) async {
-    return await repository.getSpaceMediaFromData(date);
+    return await repository.getSpaceMediaFromDate(date);
   }
 }
